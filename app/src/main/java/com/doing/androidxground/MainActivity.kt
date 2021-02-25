@@ -7,6 +7,7 @@ import android.widget.Button
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.launcher.ARouter
+import com.doing.androidxground.model.UserModel
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
             ARouter.getInstance().build("/activity/ARouterActivity")
                 .withInt("uid", 12345)
                 .withString("username", "MadProgrammer")
+                .withObject("user", UserModel("male", 28))
                 .navigation(this, object : NavigationCallback {
 
                     // 匹配成功
